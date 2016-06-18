@@ -21,7 +21,7 @@ public class IndexController {
 		final Map<String, Integer> map = new LinkedHashMap<String, Integer>();
 		map.put("value", value);
 		map.put("square", value * value);
-		map.put("square", value * value * value);
+		map.put("cube", value * value * value);
 		logger.info("{}, {}, {}", value, value * value, value * value * value);
 		return map;
 	}
