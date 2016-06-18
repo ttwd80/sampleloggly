@@ -7,6 +7,11 @@
 	<version>1.0</version>
 	<name>sampleloggly Maven Webapp</name>
 	<url>http://maven.apache.org</url>
+	<properties>
+		<slf4j.version>1.7.21</slf4j.version>
+		<log4j.version>2.6</log4j.version>
+		<spring.version>4.3.0.RELEASE</spring.version>
+	</properties>
 	<dependencies>
 		<dependency>
 			<groupId>junit</groupId>
@@ -15,22 +20,36 @@
 			<scope>test</scope>
 		</dependency>
 
+		<!-- http://mvnrepository.com/artifact/org.slf4j/jcl-over-slf4j -->
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>jcl-over-slf4j</artifactId>
+			<version>${slf4j.version}</version>
+		</dependency>
+
 		<dependency>
 			<groupId>org.slf4j</groupId>
 			<artifactId>slf4j-api</artifactId>
-			<version>1.7.21</version>
+			<version>${slf4j.version}</version>
 		</dependency>
 
 		<dependency>
 			<groupId>org.apache.logging.log4j</groupId>
-			<artifactId>log4j-to-slf4j</artifactId>
+			<artifactId>log4j-slf4j-impl</artifactId>
 			<version>2.6</version>
 		</dependency>
 
 		<dependency>
+			<groupId>org.apache.logging.log4j</groupId>
+			<artifactId>log4j-core</artifactId>
+			<version>${log4j.version}</version>
+		</dependency>
+
+
+		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-webmvc</artifactId>
-			<version>4.3.0.RELEASE</version>
+			<version>${spring.version}</version>
 			<exclusions>
 				<exclusion>
 					<groupId>commons-logging</groupId>
