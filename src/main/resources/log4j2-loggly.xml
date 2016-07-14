@@ -1,17 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE Configuration>
-<Configuration>
+<Configuration status="WARN">
 	<Appenders>
-		<Socket name="Loggly" host="localhost" port="514" protocol="UDP">
-			<PatternLayout>
-				<pattern>${hostName} java %d{yyyy-MM-dd HH:mm:ss,SSS}{GMT} %p %t
-					%c{1}.%M - %m%n</pattern>
-			</PatternLayout>
-		</Socket>
+		<LogglyAppender name="LogglyAppender"
+			endpointUrl="https://logs-01.loggly.com/inputs/f046e20b-c7bb-43c3-b343-3ee06eb923a7/tag/log4j2">
+			<PatternLayout pattern="%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n" />
+		</LogglyAppender>
 	</Appenders>
 	<Loggers>
-		<Root level="INFO">
-			<AppenderRef ref="Loggly" />
+		<Root level="Info">
+			<AppenderRef ref="LogglyAppender" />
 		</Root>
 	</Loggers>
 </Configuration>
